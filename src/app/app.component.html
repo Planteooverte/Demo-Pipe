@@ -1,34 +1,70 @@
 <h1>Zone de Test</h1>
-<table class="mt-3 w-full bg-teal-600">
+<table class="mt-3 w-full ">
   <tr>
     <th class="px-2 py-2 text-left">Code</th>
     <th class="px-2 py-2 text-left">Valeur d'affichage html</th>
     <th class="px-2 py-2 text-left">Commentaires</th>
+    <th class="px-2 py-2 text-left">Type de Pipe</th>
   </tr>
   <tr>
     <td class="px-2 py-2 text-left">{{'{{ 12345 | number }}'}}</td>
     <td class="px-2 py-2 text-left">'{{ 12345 | number }}'</td>
     <td class="px-2 py-2 text-left">Affichage du nombre au format americain</td>
+    <td class="px-2 py-2 text-left">Number Pipe </td>
   </tr>
   <tr>
     <td class="px-2 py-2 text-left">{{"{{ 12345 | number:'6.'}}"}}</td>
     <td class="px-2 py-2 text-left">'{{ 12345 | number : "6." }}'</td>
-    <td class="px-2 py-2 text-left">Bourrage nombre a 6 chiffres</td>
+    <td class="px-2 py-2 text-left">Bourrage nombre a 6 chiffres ( Le paramètre integerDigits )</td>
+    <td class="px-2 py-2 text-left">Number Pipe  </td>
   </tr>
   <tr>
     <td class="px-2 py-2 text-left">{{"{{ 12345 | number:'.2' }}"}}</td>
     <td class="px-2 py-2 text-left">'{{ 12345 | number : ".2" }}'</td>
-    <td class="px-2 py-2 text-left">Bourrage après la virgule à 2 chiffres</td>
+    <td class="px-2 py-2 text-left">Bourrage après la virgule à 2 chiffres ( Le paramètre minFractionDigits )</td>
+    <td class="px-2 py-2 text-left">Number Pipe </td>
+  </tr>
+  <tr>
+    <td class="px-2 py-2 text-left">{{ "{{5.123456789 | number: '4.5-5': 'fr'}}" }}</td>
+    <td class="px-2 py-2 text-left">'{{5.123456789 | number: '4.5-5': 'fr'}}'</td>
+    <td class="px-2 py-2 text-left">A debugger</td>
+    <td class="px-2 py-2 text-left">Number Pipe et Locale </td>
+  </tr>
+  <tr>
+    <td class="px-2 py-2 text-left">{{ "{{'abcdefg' | slice: 1}}" }}</td>
+    <td class="px-2 py-2 text-left">'{{'abcdefg' | slice: 1}}'</td>
+    <td class="px-2 py-2 text-left">Suppression du 1er élément</td>
+    <td class="px-2 py-2 text-left">Slice Pipe</td>
+  </tr>
+  <tr>
+    <td class="px-2 py-2 text-left">{{ "{{'abcdefg' | slice: -2}}" }}</td>
+    <td class="px-2 py-2 text-left">'{{'abcdefg' | slice: -2}}'</td>
+    <td class="px-2 py-2 text-left">Conservation des 2 derniers éléments </td>
+    <td class="px-2 py-2 text-left">Slice Pipe</td>
+  </tr>
+  <tr>
+    <td class="px-2 py-2 text-left">{{ "{{'abcdefg' | slice: 1:4 }}" }}</td>
+    <td class="px-2 py-2 text-left">'{{'abcdefg' | slice: 1:4}}'</td>
+    <td class="px-2 py-2 text-left">Récupération des éléments 2,3,4 de la chaine</td>
+    <td class="px-2 py-2 text-left">Slice Pipe</td>
+  </tr>
+  <tr>
+    <td class="px-2 py-2 text-left">{{ "{{'abcdefg' | slice: 3:-1 }}" }}</td>
+    <td class="px-2 py-2 text-left">'{{'abcdefg' | slice: 3:-1}}'</td>
+    <td class="px-2 py-2 text-left">On enlève les 3 premiers et le dernier</td>
+    <td class="px-2 py-2 text-left">Slice Pipe</td>
   </tr>
   <tr>
     <td class="px-2 py-2 text-left">{{"{{ 0.8 | percent }}"}}</td>
     <td class="px-2 py-2 text-left">'{{ 0.8 | percent }}'</td>
     <td class="px-2 py-2 text-left">Format en pourcentage</td>
+    <td class="px-2 py-2 text-left">Percent Pipe </td>
   </tr>
   <tr>
     <td class="px-2 py-2 text-left">{{"{{ 0.8657 | percent:'3.' }}"}}</td>
     <td class="px-2 py-2 text-left">'{{ 0.8657 | percent : "3." }}'</td>
     <td class="px-2 py-2 text-left">Arrondi sur 3 chiffres en poucentage</td>
+    <td class="px-2 py-2 text-left">Percent Pipe </td>
   </tr>
   <tr>
     <td class="px-2 py-2 text-left">{{"{{ 0.8657 | percent:'.3' }}"}}</td>
@@ -36,11 +72,13 @@
     <td class="px-2 py-2 text-left">
       Arrondi sur 3 chiffres en pourcentage après la virgule
     </td>
+    <td class="px-2 py-2 text-left">Percent Pipe </td>
   </tr>
   <tr>
     <td class="px-2 py-2 text-left">{{ "{{ 10.6 | currency:'CAD' }}" }}</td>
     <td class="px-2 py-2 text-left">'{{ 10.6 | currency : "CAD" }}'</td>
     <td class="px-2 py-2 text-left">Device en Dollard Canadien</td>
+    <td class="px-2 py-2 text-left">Currency Pipe </td>
   </tr>
   <tr>
     <td class="px-2 py-2 text-left">
@@ -50,6 +88,7 @@
       '{{ 10.6 | currency : "CAD" : "symbol-narrow" }}'
     </td>
     <td class="px-2 py-2 text-left">Device en Dollard americain</td>
+    <td class="px-2 py-2 text-left">Currency Pipe </td>
   </tr>
   <tr>
     <td class="px-2 py-2 text-left">
@@ -59,55 +98,65 @@
       '{{ 10.6 | currency : "EUR" : "code" : ".3" }}'
     </td>
     <td class="px-2 py-2 text-left">Device en Euro</td>
+    <td class="px-2 py-2 text-left">Currency Pipe </td>
   </tr>
   <tr>
     <td class="px-2 py-2 text-left">{{ "{{ 'ICI' | lowercase }}" }}</td>
     <td class="px-2 py-2 text-left">'{{ "ICI" | lowercase }}'</td>
-    <td class="px-2 py-2 text-left">Transformation en Minuscule</td>
+    <td class="px-2 py-2 text-left">Transforme le texte en minuscules</td>
+    <td class="px-2 py-2 text-left">Pipe Formatage de texte </td>
   </tr>
   <tr>
-    <td class="px-2 py-2 text-left">{{ "{{ 'et ailleurs' | uppercase }}" }}</td>
-    <td class="px-2 py-2 text-left">'{{ "et ailleurs" | uppercase }}'</td>
-    <td class="px-2 py-2 text-left">Transformation en Majuscule</td>
+    <td class="px-2 py-2 text-left">{{ "{{ 'ici' | uppercase }}" }}</td>
+    <td class="px-2 py-2 text-left">'{{ "ici" | uppercase }}'</td>
+    <td class="px-2 py-2 text-left">Transforme le texte en majuscules</td>
+    <td class="px-2 py-2 text-left">Pipe Formatage de texte </td>
   </tr>
   <tr>
-    <td class="px-2 py-2 text-left">
-      {{ "{{ 'viva la revolution' | titlecase }}" }}
-    </td>
-    <td class="px-2 py-2 text-left">
-      '{{ "viva la revolution" | titlecase }}'
-    </td>
-    <td class="px-2 py-2 text-left">
-      Changement de la 1er lettre de chaque mot en majuscule
-    </td>
+    <td class="px-2 py-2 text-left">'{{ "{{ 'ici, c\'est cda' | titlecase }}" }}'</td>
+    <td class="px-2 py-2 text-left">'{{ "ici, c'est cda" | titlecase }}'</td>
+    <td class="px-2 py-2 text-left">Mets la 1ère lettre de chaque mot en majuscule</td>
+    <td class="px-2 py-2 text-left">Pipe Formatage de texte </td>
   </tr>
   <tr>
-    <td class="px-2 py-2 text-left">
-      {{ "{{ 'shortDate' | date:'dd/MM/yyyy' }}" }}
-    </td>
-    <td class="px-2 py-2 text-left">
-      '{{ "shortDate" | date : "dd/MM/yyyy" }}'
-    </td>
-    <td class="px-2 py-2 text-left">Comments</td>
+    <td class="px-2 py-2 text-left">{{ "{{1682427928 | date:'shortTime' }}" }}</td>
+    <td class="px-2 py-2 text-left">'{{1682427928 | date:'shortTime' }}'</td>
+    <td class="px-2 py-2 text-left">Temps en millisecondes(ou object date en entrée) formaté par un mot-clé, ici 'shortime'</td>
+    <td class="px-2 py-2 text-left">Date Pipe </td>
   </tr>
   <tr>
-    <td class="px-2 py-2 text-left">{{ "Code" }}</td>
+    <td class="px-2 py-2 text-left">{{ "{{1682427928 | date:'dd/MM/yyyy' }}" }}</td>
+    <td class="px-2 py-2 text-left">'{{1682427928 | date:'dd/MM/yyyy' }}'</td>
+    <td class="px-2 py-2 text-left">Temps en millisecondes(ou object date en entrée) formaté par un format de date donné</td>
+    <td class="px-2 py-2 text-left">Date Pipe </td>
+  </tr>
+  <tr>
+    <td class="px-2 py-2 text-left">{{ "Pipe Async" }}</td>
     <td class="px-2 py-2 text-left">'Resultat'</td>
-    <td class="px-2 py-2 text-left">Comments</td>
+    <td class="px-2 py-2 text-left">A voir avec Philippe</td>
+    <td class="px-2 py-2 text-left">Async Pipe </td>
   </tr>
   <tr>
-    <td class="px-2 py-2 text-left">{{ "Code" }}</td>
+    <td class="px-2 py-2 text-left">{{ "Pipe Créer son propre pipe" }}</td>
     <td class="px-2 py-2 text-left">'Resultat'</td>
-    <td class="px-2 py-2 text-left">Comments</td>
-  </tr>
-  <tr>
-    <td class="px-2 py-2 text-left">{{ "Code" }}</td>
-    <td class="px-2 py-2 text-left">'Resultat'</td>
-    <td class="px-2 py-2 text-left">Comments</td>
-  </tr>
-  <tr>
-    <td class="px-2 py-2 text-left">{{ "Code" }}</td>
-    <td class="px-2 py-2 text-left">'Resultat'</td>
-    <td class="px-2 py-2 text-left">Comments</td>
+    <td class="px-2 py-2 text-left">Voir schéma</td>
+    <td class="px-2 py-2 text-left">Custom Pipe </td>
   </tr>
 </table>
+<!-- <h1>Table using JSON Server API</h1>
+<hr>
+
+
+<table id="tests">
+
+  <tr>
+    <th *ngFor="let col of columns">
+      {{col}}
+    </th>
+  </tr>
+  <tr *ngFor="let test of tests">
+    <td *ngFor="let col of index">
+      {{test[col]}}
+    </td>
+  </tr>
+</table> -->
