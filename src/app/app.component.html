@@ -1,0 +1,113 @@
+<h1>Zone de Test</h1>
+<table class="mt-3 w-full bg-teal-600">
+  <tr>
+    <th class="px-2 py-2 text-left">Code</th>
+    <th class="px-2 py-2 text-left">Valeur d'affichage html</th>
+    <th class="px-2 py-2 text-left">Commentaires</th>
+  </tr>
+  <tr>
+    <td class="px-2 py-2 text-left">{{'{{ 12345 | number }}'}}</td>
+    <td class="px-2 py-2 text-left">'{{ 12345 | number }}'</td>
+    <td class="px-2 py-2 text-left">Affichage du nombre au format americain</td>
+  </tr>
+  <tr>
+    <td class="px-2 py-2 text-left">{{"{{ 12345 | number:'6.'}}"}}</td>
+    <td class="px-2 py-2 text-left">'{{ 12345 | number : "6." }}'</td>
+    <td class="px-2 py-2 text-left">Bourrage nombre a 6 chiffres</td>
+  </tr>
+  <tr>
+    <td class="px-2 py-2 text-left">{{"{{ 12345 | number:'.2' }}"}}</td>
+    <td class="px-2 py-2 text-left">'{{ 12345 | number : ".2" }}'</td>
+    <td class="px-2 py-2 text-left">Bourrage après la virgule à 2 chiffres</td>
+  </tr>
+  <tr>
+    <td class="px-2 py-2 text-left">{{"{{ 0.8 | percent }}"}}</td>
+    <td class="px-2 py-2 text-left">'{{ 0.8 | percent }}'</td>
+    <td class="px-2 py-2 text-left">Format en pourcentage</td>
+  </tr>
+  <tr>
+    <td class="px-2 py-2 text-left">{{"{{ 0.8657 | percent:'3.' }}"}}</td>
+    <td class="px-2 py-2 text-left">'{{ 0.8657 | percent : "3." }}'</td>
+    <td class="px-2 py-2 text-left">Arrondi sur 3 chiffres en poucentage</td>
+  </tr>
+  <tr>
+    <td class="px-2 py-2 text-left">{{"{{ 0.8657 | percent:'.3' }}"}}</td>
+    <td class="px-2 py-2 text-left">'{{ 0.8657 | percent : ".3" }}'</td>
+    <td class="px-2 py-2 text-left">
+      Arrondi sur 3 chiffres en pourcentage après la virgule
+    </td>
+  </tr>
+  <tr>
+    <td class="px-2 py-2 text-left">{{ "{{ 10.6 | currency:'CAD' }}" }}</td>
+    <td class="px-2 py-2 text-left">'{{ 10.6 | currency : "CAD" }}'</td>
+    <td class="px-2 py-2 text-left">Device en Dollard Canadien</td>
+  </tr>
+  <tr>
+    <td class="px-2 py-2 text-left">
+      {{ "{{ 10.6 | currency:'CAD':'symbol-narrow' }}" }}
+    </td>
+    <td class="px-2 py-2 text-left">
+      '{{ 10.6 | currency : "CAD" : "symbol-narrow" }}'
+    </td>
+    <td class="px-2 py-2 text-left">Device en Dollard americain</td>
+  </tr>
+  <tr>
+    <td class="px-2 py-2 text-left">
+      {{ "{{ 10.6 | currency:'EUR':'code':'.3' }}" }}
+    </td>
+    <td class="px-2 py-2 text-left">
+      '{{ 10.6 | currency : "EUR" : "code" : ".3" }}'
+    </td>
+    <td class="px-2 py-2 text-left">Device en Euro</td>
+  </tr>
+  <tr>
+    <td class="px-2 py-2 text-left">{{ "{{ 'ICI' | lowercase }}" }}</td>
+    <td class="px-2 py-2 text-left">'{{ "ICI" | lowercase }}'</td>
+    <td class="px-2 py-2 text-left">Transformation en Minuscule</td>
+  </tr>
+  <tr>
+    <td class="px-2 py-2 text-left">{{ "{{ 'et ailleurs' | uppercase }}" }}</td>
+    <td class="px-2 py-2 text-left">'{{ "et ailleurs" | uppercase }}'</td>
+    <td class="px-2 py-2 text-left">Transformation en Majuscule</td>
+  </tr>
+  <tr>
+    <td class="px-2 py-2 text-left">
+      {{ "{{ 'viva la revolution' | titlecase }}" }}
+    </td>
+    <td class="px-2 py-2 text-left">
+      '{{ "viva la revolution" | titlecase }}'
+    </td>
+    <td class="px-2 py-2 text-left">
+      Changement de la 1er lettre de chaque mot en majuscule
+    </td>
+  </tr>
+  <tr>
+    <td class="px-2 py-2 text-left">
+      {{ "{{ 'shortDate' | date:'dd/MM/yyyy' }}" }}
+    </td>
+    <td class="px-2 py-2 text-left">
+      '{{ "shortDate" | date : "dd/MM/yyyy" }}'
+    </td>
+    <td class="px-2 py-2 text-left">Comments</td>
+  </tr>
+  <tr>
+    <td class="px-2 py-2 text-left">{{ "Code" }}</td>
+    <td class="px-2 py-2 text-left">'Resultat'</td>
+    <td class="px-2 py-2 text-left">Comments</td>
+  </tr>
+  <tr>
+    <td class="px-2 py-2 text-left">{{ "Code" }}</td>
+    <td class="px-2 py-2 text-left">'Resultat'</td>
+    <td class="px-2 py-2 text-left">Comments</td>
+  </tr>
+  <tr>
+    <td class="px-2 py-2 text-left">{{ "Code" }}</td>
+    <td class="px-2 py-2 text-left">'Resultat'</td>
+    <td class="px-2 py-2 text-left">Comments</td>
+  </tr>
+  <tr>
+    <td class="px-2 py-2 text-left">{{ "Code" }}</td>
+    <td class="px-2 py-2 text-left">'Resultat'</td>
+    <td class="px-2 py-2 text-left">Comments</td>
+  </tr>
+</table>
